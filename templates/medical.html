@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Supply Chain</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-medic-care.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/card.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 566 Medic Care
+
+https://templatemo.com/tm-566-medic-care
+
+-->
+    </head>
+    
+    <body id="top">
+    
+        <main>
+
+            <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+                <div class="container">
+                    <a class="navbar-brand mx-auto d-lg-none" href="index.html">
+                        Route Trace
+                        <strong class="d-block">Route Trace</strong>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#hero">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link" href="accounts/about">About</a>
+                                {% elif user.is_anonymous %}
+                                <a class="nav-link" href="#about">About</a>
+                                {% endif %}
+                            </li>
+
+                            <li class="nav-item">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link" href="accounts/contact">Contact</a>
+                                {% elif user.is_anonymous %}
+                                <a class="nav-link" href="#about">Contact</a>
+                                {% endif %}
+                            </li>
+
+
+                            <a class="navbar-brand d-none d-lg-block" href="index.html">
+                                 Route Trace
+                                <strong class="d-block">Track Logistics</strong>
+                            </a>
+
+                            <li class="nav-item">
+                                {% if user.is_anonymous %}
+                                <a class="nav-link" href="accounts/register">Register</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="accounts/login">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                {% elif user.is_authenticated %}
+                                <a class="nav-link" href="accounts/logout">Logout</a>
+                                 {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+
+            <section class="hero" id="hero">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{% static 'images/slider/image3.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="{% static 'images/slider/image1.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="{% static 'images/slider/image2.jpg' %}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="heroText d-flex flex-column justify-content-center">
+
+                                <h1 class="mt-auto mb-2">
+                                    Better
+                                    <div class="animated-info">
+                                        <span class="animated-item">Tracking</span>
+                                        <span class="animated-item">Tracking</span>
+                                        <span class="animated-item">Tracking</span>
+                                    </div>
+                                </h1>
+
+                                <p class="mb-4">Route Trace is tracking websites allow you to track the status and location of your shipments in real-time, which is especially useful when you're waiting for a package or need to know when it will arrive.</p>
+
+                                <div class="heroLinks d-flex flex-wrap align-items-center">
+                                    <a class="custom-link me-4" href="#about" data-hover="Learn More">Learn More</a>
+
+                                    <p class="contact-phone mb-0"><i class="bi-phone"></i> 010-020-0340</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding" id="about">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <h2 class="mb-lg-3 mb-3">Route Trace API</h2>
+                            <p>Take the first step by <a style="color:blue;" href="accounts/register">registering an account</a> with Route Trace</p>
+                            <p> The Track API fetches tracking information based on your Platform Order Number or Easyship Shipment ID. The responses give the most recent status update for the shipment as well as a history of all checkpoints.</p>
+                            <p>Register-->Login-->Select Courier Platform-->Enter Valid Order-ID-->Track Shipment</p>
+                            <p>To add space below an HTML component, you can use CSS margin-bottom property. Here's an example code snippet:</p>
+                        </div>
+
+                        <div class="col-lg-4 col-md-5 col-12 mx-auto">
+                            <div class="featured-circle bg-white shadow-lg d-flex justify-content-center align-items-center">
+<!--                                <p class="featured-text"><span class="featured-number">12</span> Years<br> of Experiences</p>-->
+                                    <img src="{% static 'images/gallery/circle.png' %}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="container">
+                 <h2 class="mb-lg-5 mb-5">Track your Courier</h2>
+            <div class="card-container">
+       {% for doc in doc %}
+  <div class="card">
+    <div class="card-image">
+      <img src="{{doc.image.url}}" alt="Image 1">
+    </div>
+    <div class="card-content">
+      <div class="button"><button class="card-button" >Track</button></div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- Repeat the above card divs to create more cards -->
+</div>
+                </div>
+
+
+            {% block content %}{% endblock %}
+<!--            <section class="gallery">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        {% for doc in doc %}-->
+<!--                        <div class="col-lg-6 col-6 ps-0">-->
+<!--                            <img src="{{doc.image.url}}" class="img-fluid galleryImage" alt="get a vaccine" title="get a vaccine for yourself">-->
+<!--                            Name       : {{doc.name}}<br>-->
+<!--                            Specialist : {{doc.specialist}}<br>-->
+<!--                            Experiance : {{doc.experiance}}<br>-->
+<!--                            Gmail      : {{doc.email}}-->
+<!--                        </div>-->
+<!--                        {% endfor %}-->
+
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
+
+
+        </main>
+
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/scrollspy.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+<!--
+
+TemplateMo 566 Medic Care
+
+https://templatemo.com/tm-566-medic-care
+
+-->
+    </body>
+</html>

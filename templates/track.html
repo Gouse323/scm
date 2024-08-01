@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Status</title>
+     <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .content {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Order Status</h1>
+    <p>Enter your order ID:</p>
+    <input type="text" id="order-id">
+    <br>
+    <button onclick="showStatus()">Check Status</button>
+    <br><br>
+    <p id="status-message"></p>
+
+    <script>
+      function showStatus() {
+        const orderId = document.getElementById("order-id").value;
+        const status = getOrderStatus(orderId);
+        const statusMessage = `Order ${orderId} is ${status}.`;
+        document.getElementById("status-message").innerHTML = statusMessage;
+      }
+
+      function getOrderStatus(orderId) {
+        // This is where you would query a database or API to get the order status
+        // For this example, we'll just return a random status
+        const statuses = ["in progress", "shipped", "delivered"];
+        const randomIndex = Math.floor(Math.random() * statuses.length);
+        return statuses[randomIndex];
+      }
+    </script>
+  </body>
+</html>
