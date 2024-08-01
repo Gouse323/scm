@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t$cnk%lny$tset55qp7w^ibak-b%7d2hs_wc9@cn4w$pk0p8yn'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower()=="true"
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -78,19 +78,11 @@ WSGI_APPLICATION = 'new3.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'medicare',
-        'USER': 'postgres',
-        'PASSWORD': 'Gmk@030203',
-        'HOST': 'localhost'
-    }
-}
+database_url=os.environ.get("DATABASE_URL")
 
-DATABASES["default"]=dj_database_url.parse("postgresql://gmk:qfVOQfMOZnjdsjvLUkA1SxNNWWbagGHs@dpg-cqlsu10gph6c738m5jr0-a.oregon-postgres.render.com/scm_gmk")
+DATABASES["default"]=dj_database_url.parse(database_url)
 
-
+# postgresql://gmk:qfVOQfMOZnjdsjvLUkA1SxNNWWbagGHs@dpg-cqlsu10gph6c738m5jr0-a/scm_gmk
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
